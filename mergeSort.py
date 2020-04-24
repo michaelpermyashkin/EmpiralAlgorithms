@@ -1,6 +1,7 @@
 import os
 import time
 
+# MergeSort definition
 def mergeSort(arr):
     if len(arr) > 1:
         left = arr[:len(arr) // 2] # left half
@@ -31,7 +32,9 @@ def mergeSort(arr):
             r += 1
             i += 1
 
+# Executes merge sort and times program
 def tester(values):
+    arr = []
     for val in values:
         arr.append(str(val))
     startTime = time.time()
@@ -39,24 +42,22 @@ def tester(values):
     elapsedMilli = (time.time() - startTime) * 1000
     return elapsedMilli    
 
+# Handles reading and writing files for testing
 def runner():
     for i in range(30):
-        #### UNSORTED ####
-        arr = []
+        ################### UNSORTED ##########################
         # small
         with open('input/unsorted/small/unsorted{}'.format(i), 'r') as file:
             values = file.readline()
             elapsedMilli = tester(values)
             with open('results/mergesort/unsorted/small/mergeSort_unsorted_small', 'a+') as out:
                 out.write((str(elapsedMilli))+'\n')
-        arr = []
         # medium
         with open('input/unsorted/medium/unsorted{}'.format(i), 'r') as file:
             values = file.readline()
             elapsedMilli = tester(values)
             with open('results/mergesort/unsorted/medium/mergeSort_unsorted_medium', 'a+') as out:
                 out.write((str(elapsedMilli))+'\n')
-        arr = []
         # large
         with open('input/unsorted/large/unsorted{}'.format(i), 'r') as file:
             values = file.readline()
@@ -64,8 +65,46 @@ def runner():
             with open('results/mergesort/unsorted/large/mergeSort_unsorted_large', 'a+') as out:
                 out.write((str(elapsedMilli))+'\n')
                 
+        ###################### Sorted ##########################
+        # small
+        with open('input/sorted/small/sorted{}'.format(i), 'r') as file:
+            values = file.readline()
+            elapsedMilli = tester(values)
+            with open('results/mergesort/sorted/small/mergeSort_sorted_small', 'a+') as out:
+                out.write((str(elapsedMilli))+'\n')
+        # medium
+        with open('input/sorted/medium/sorted{}'.format(i), 'r') as file:
+            values = file.readline()
+            elapsedMilli = tester(values)
+            with open('results/mergesort/sorted/medium/mergeSort_sorted_medium', 'a+') as out:
+                out.write((str(elapsedMilli))+'\n')
+        # large
+        with open('input/sorted/large/sorted{}'.format(i), 'r') as file:
+            values = file.readline()
+            elapsedMilli = tester(values)
+            with open('results/mergesort/sorted/large/mergeSort_sorted_large', 'a+') as out:
+                out.write((str(elapsedMilli))+'\n')
+                
+        ###################### Reverse ##########################
+        # small
+        with open('input/reverse/small/reverse{}'.format(i), 'r') as file:
+            values = file.readline()
+            elapsedMilli = tester(values)
+            with open('results/mergesort/reverse/small/mergeSort_reverse_small', 'a+') as out:
+                out.write((str(elapsedMilli))+'\n')
+        # medium
+        with open('input/reverse/medium/reverse{}'.format(i), 'r') as file:
+            values = file.readline()
+            elapsedMilli = tester(values)
+            with open('results/mergesort/reverse/medium/mergeSort_reverse_medium', 'a+') as out:
+                out.write((str(elapsedMilli))+'\n')
+        # large
+        with open('input/reverse/large/reverse{}'.format(i), 'r') as file:
+            values = file.readline()
+            elapsedMilli = tester(values)
+            with open('results/mergesort/reverse/large/mergeSort_reverse_large', 'a+') as out:
+                out.write((str(elapsedMilli))+'\n')
+      
+                
 if __name__ == '__main__':
     runner()
-            
-
-    
