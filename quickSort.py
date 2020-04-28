@@ -32,27 +32,30 @@ def medianOfThree(arr, leftPointer, rightPointer):
         else:
             return right, rightIndex
 
-#A method to partition around the median
+# Partition about the median
 def medianPartition(arr, leftPointer, rightPointer):
-    pivot, pivotIndex = medianOfThree(arr, leftPointer, rightPointer)
+    pivot, pivotIndex = medianOfThree(arr, leftPointer, rightPointer) # get pivot and pivot index
 
     arr[pivotIndex] = arr[leftPointer]
     arr[leftPointer] = pivot
 
+    # sort elements with respect to pivot value
     updatedPivotIndex = leftPointer + 1
     for j in range(leftPointer + 1, rightPointer):
+        # if element is less than pivot, swap
         if arr[j] < pivot:
             temp = arr[j]
             arr[j] = arr[updatedPivotIndex]
             arr[updatedPivotIndex] = temp
             updatedPivotIndex += 1
 
-    leftPointerval = arr[leftPointer]
+    # swap value at left pointer with 1 position behind pivots value
+    valueLeft = arr[leftPointer]
     arr[leftPointer] = arr[updatedPivotIndex-1]
-    arr[updatedPivotIndex-1] = leftPointerval
+    arr[updatedPivotIndex-1] = valueLeft
     return updatedPivotIndex - 1 
 
-
+# recursive quicksort function
 def quicksort(arr, leftindex, rightindex):
     if leftindex < rightindex:
         pivotIndex = medianPartition(arr, leftindex, rightindex) # location of pivot for partition
@@ -61,13 +64,11 @@ def quicksort(arr, leftindex, rightindex):
 
 # Executes quicksort and times program
 def tester(values):
-    # arr = [3,4,0,1,4,6,7,8,9,4,5,6,2,3,4,56,7,7,4,3,2,5,6,8,9,0,234,2356,46,4678,235,46]
     arr = []
     for val in values:
         arr.append(int(val))
     startTime = time.time()
     quicksort(arr, 0, len(arr))
-    # print(arr)
     elapsedMilli = (time.time() - startTime) * 1000
     return elapsedMilli    
 
