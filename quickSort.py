@@ -59,7 +59,7 @@ def medianPartition(arr, leftPointer, rightPointer):
 def quicksort(arr, leftindex, rightindex):
     if leftindex < rightindex:
         pivotIndex = medianPartition(arr, leftindex, rightindex) # location of pivot for partition
-        quicksort(arr, leftindex, pivotIndex) # recurse on left subarray
+        quicksort(arr, leftindex, pivotIndex-1) # recurse on left subarray
         quicksort(arr, pivotIndex + 1, rightindex) # recurse on tight subarray
 
 # Executes quicksort and times program
