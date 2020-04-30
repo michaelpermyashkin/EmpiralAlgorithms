@@ -4,9 +4,9 @@ import random
 #########################
 #       Unsorted        #
 #########################
-smallPath = "./input/small/unsorted/unsorted{}"
-mediumPath = "./input/medium/unsorted/unsorted{}"
-largePath = "./input/large/unsorted/unsorted{}"
+smallPath = "./input/unsorted/small/unsorted{}"
+mediumPath = "./input/unsorted/medium/unsorted{}"
+largePath = "./input/unsorted/large/unsorted{}"
 for i in range(30):
     # small file writer
     with open(smallPath.format(i), "w+") as out:
@@ -35,10 +35,9 @@ largePath = "./input/sorted/large/sorted{}"
 for i in range(30):
     # small file writer
     with open('input/unsorted/small/unsorted{}'.format(i), 'r') as file:
-        values = file.readlines()
         toSort = []
-        for v in values:
-            toSort.append(int(v))
+        for line in file:
+            toSort.append(int(line))
         toSort.sort()
         with open(smallPath.format(i), "w+") as out:
             for val in toSort:
@@ -46,23 +45,21 @@ for i in range(30):
 
     # medium file writer
     with open('input/unsorted/medium/unsorted{}'.format(i), 'r') as file:
-        values = file.readlines()
         toSort = []
-        for v in values:
-            toSort.append(int(v))
+        for line in file:
+            toSort.append(int(line))
         toSort.sort()
-        with open(smallPath.format(i), "w+") as out:
+        with open(mediumPath.format(i), "w+") as out:
             for val in toSort:
                 out.write("{}\n".format(val))
 
     # large file writer
     with open('input/unsorted/large/unsorted{}'.format(i), 'r') as file:
-        values = file.readlines()
         toSort = []
-        for v in values:
-            toSort.append(int(v))
+        for line in file:
+            toSort.append(int(line))
         toSort.sort()
-        with open(smallPath.format(i), "w+") as out:
+        with open(largePath.format(i), "w+") as out:
             for val in toSort:
                 out.write("{}\n".format(val))
 
@@ -75,10 +72,9 @@ largePath = "./input/reverse/large/reverse{}"
 for i in range(30):
     # large file writer
     with open('input/unsorted/small/unsorted{}'.format(i), 'r') as file:
-        values = file.readlines()
         toSort = []
-        for v in values:
-            toSort.append(int(v))
+        for line in file:
+            toSort.append(int(line))
         toSort.sort(reverse=True)
         with open(smallPath.format(i), "w+") as out:
             for val in toSort:
@@ -86,22 +82,20 @@ for i in range(30):
 
     # medium file writer
     with open('input/unsorted/medium/unsorted{}'.format(i), 'r') as file:
-        values = file.readlines()
         toSort = []
-        for v in values:
-            toSort.append(int(v))
+        for line in file:
+            toSort.append(int(line))
         toSort.sort(reverse=True)
-        with open(smallPath.format(i), "w+") as out:
+        with open(mediumPath.format(i), "w+") as out:
             for val in toSort:
                 out.write("{}\n".format(val))
 
     # large file writer
     with open('input/unsorted/large/unsorted{}'.format(i), 'r') as file:
-        values = file.readlines()
         toSort = []
-        for v in values:
-            toSort.append(int(v))
+        for line in file:
+            toSort.append(int(line))
         toSort.sort(reverse=True)
-        with open(smallPath.format(i), "w+") as out:
+        with open(largePath.format(i), "w+") as out:
             for val in toSort:
                 out.write("{}\n".format(val))
